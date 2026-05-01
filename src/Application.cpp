@@ -49,7 +49,7 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
         canvas->addStar(x, y, 0.2, 0.2, color);
     }
     else if (tool == MOUSE) {
-        canvas->tryToSelectShape(x, y);
+        canvas->tryToSelectShape(x, y, color);
     }
     
     canvas->redraw();

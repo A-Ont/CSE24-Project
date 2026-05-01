@@ -28,7 +28,7 @@ public:
     void addRectangle(float x, float y, float width, float height, Color color);
     void addHexagon(float x, float y, float width, float height, Color color);
     void addStar(float x, float y, float base, float height, Color color);
-    void tryToSelectShape(float x, float y);
+    void tryToSelectShape(float x, float y, Color color);
     void tryToMoveSelectedShape(float x, float y);
     void Undo();
     void Redo();

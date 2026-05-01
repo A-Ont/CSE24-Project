@@ -1,3 +1,4 @@
+#include "Color.h"
 #include "Hexagon.h"
 #include "Shape.h"
 #include <Canvas.h>
@@ -30,7 +31,11 @@ void Canvas::addStar(float x, float y, float width, float height, Color color) {
     shapes.push_back(new Star(x, y, width, height, color));
 }
 
-void Canvas::tryToSelectShape(float x, float y) {
+void change_color(Shape* selected_shape,Color color)
+{
+    selected_shape->setColor(color);
+}
+void Canvas::tryToSelectShape(float x, float y, Color color) {
     if (selectedShape) {
         selectedShape->deselect();
         selectedShape = nullptr;
@@ -41,6 +46,7 @@ void Canvas::tryToSelectShape(float x, float y) {
         if (shapes[i]->contains(x, y)) {
             selectedShape = shapes[i];
             selectedShape->select();
+            change_color(selectedShape, color);
             break;
         }
     }
