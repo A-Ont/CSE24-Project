@@ -1,5 +1,7 @@
+#include "Color.h"
 #include <Enums.h>
 #include <Application.h>
+#include <bobcat_ui/bobcat_ui.h>
 
 using namespace bobcat;
 
@@ -19,7 +21,7 @@ Application::Application() {
     ON_MOUSE_DOWN(canvas, Application::onCanvasMouseDown);
     ON_DRAG(canvas, Application::onCanvasMouseDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
-
+    ON_CHANGE(colorSelector, Application::onColorChange);
     window->show();
 }
 
@@ -71,6 +73,21 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->redraw();
     }
 }
+
+void Application::onColorChange(bobcat::Widget* sender){
+    
+    // Color Acolor = colorSelector->getSelectedColor();
+    
+    // Shape* currentShape = canvas->getSelectedShape();
+    // if(currentShape){
+    //     canvas->change_color(currentShape, Acolor);
+    // }
+    canvas ->reColor(colorSelector->getSelectedColor());
+    canvas->redraw();    
+       
+    }
+    
+
 
 void Application::onCanvasMouseDrag(bobcat::Widget* sender, float x, float y) {
     Color color = colorSelector->getSelectedColor();

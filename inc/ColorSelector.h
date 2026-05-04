@@ -24,6 +24,8 @@ public:
 
     Color getSelectedColor() const;
 
+    //COLOR getEnumColor() const;
+
     ~ColorSelector();
 };
 

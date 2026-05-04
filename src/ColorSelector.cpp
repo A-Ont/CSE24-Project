@@ -35,6 +35,8 @@ ColorSelector::ColorSelector(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(indigoButton, ColorSelector::onClick);
     ON_CLICK(violetButton, ColorSelector::onClick);
 
+    
+
     selectedColor = RED;
     visualizeSelectedColor();
 }
@@ -72,6 +74,8 @@ void ColorSelector::onClick(Widget* sender) {
     
     if (sender == redButton) {
         selectedColor = RED;
+    
+        
     }
     else if (sender == orangeButton) {
         selectedColor = ORANGE;
@@ -92,7 +96,12 @@ void ColorSelector::onClick(Widget* sender) {
         selectedColor = VIOLET;
     }
 
+    if (onChangeCb) {
+        onChangeCb(this);
+    }
+
     visualizeSelectedColor();
+    //getEnumColor();
 }
 
 void ColorSelector::visualizeSelectedColor() const {
@@ -118,6 +127,10 @@ void ColorSelector::visualizeSelectedColor() const {
         violetButton->label("@+5square");
     }
 }
+
+//COLOR ColorSelector::getEnumColor() const{
+  //return selectedColor;  
+//}
 
 void ColorSelector::deselectAllColors() const {
     redButton->label("");

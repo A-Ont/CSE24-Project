@@ -31,10 +31,15 @@ void Canvas::addStar(float x, float y, float width, float height, Color color) {
     shapes.push_back(new Star(x, y, width, height, color));
 }
 
-void change_color(Shape* selected_shape,Color color)
+void Canvas::change_color(Shape* selected_shape,Color color)
 {
     selected_shape->setColor(color);
 }
+
+Shape* Canvas::getSelectedShape(){
+    return selectedShape;
+}
+
 void Canvas::tryToSelectShape(float x, float y, Color color) {
     if (selectedShape) {
         selectedShape->deselect();
@@ -96,8 +101,16 @@ void Canvas::render() {
     for (size_t i = 0; i < shapes.size(); i++) {
         shapes[i]->draw();
     }
+}
 
-   
+void Canvas::reColor(Color color){
+    
+    
+    
+    Shape* currentShape = getSelectedShape();
+    //if(currentShape){
+        change_color(currentShape, color);
+    //}
 }
 
 Canvas::~Canvas() {

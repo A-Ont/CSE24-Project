@@ -6,6 +6,7 @@
 #include <ColorSelector.h>
 #include <Toolbar.h>
 #include <Color.h>
+#include <bobcat_ui/bobcat_ui.h>
 
 class Application : public bobcat::Application_ {
     bobcat::Window* window;
@@ -16,6 +17,7 @@ class Application : public bobcat::Application_ {
     void onCanvasMouseDown(bobcat::Widget* sender, float x, float y);
     void onCanvasMouseDrag(bobcat::Widget* sender, float x, float y);
     void onToolbarChange(bobcat::Widget* sender);
+    void onColorChange(bobcat::Widget* sender);
 
 public:
     Application();
