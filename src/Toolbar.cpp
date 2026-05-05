@@ -1,6 +1,8 @@
 #include "Enums.h"
 #include <FL/Enumerations.H>
 #include <Toolbar.h>
+#include <bobcat_ui/bobcat_ui.h>
+#include <bobcat_ui/image.h>
 
 using namespace bobcat;
 
@@ -17,6 +19,10 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     RedoButton = new Image(x, y + 225, 25, 25, "./assets/clear.png");
     clearButton = new Image(x, y + 250, 25, 25, "./assets/clear.png");
 
+    enlargeButton = new Image(x, y + 300, 25, 25, "./assets/undo.png");
+    reduceButton = new Image(x, y + 325, 25, 25, "./assets/undo.png");
+
+
     pencilButton->box(FL_BORDER_BOX);
     eraserButton->box(FL_BORDER_BOX);
     mouseButton->box(FL_BORDER_BOX);
@@ -28,6 +34,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     undoButton->box(FL_BORDER_BOX);
     RedoButton->box(FL_BORDER_BOX);
     clearButton->box(FL_BORDER_BOX);
+    enlargeButton->box(FL_BORDER_BOX);
+    reduceButton->box(FL_BORDER_BOX);
 
     ON_CLICK(pencilButton, Toolbar::onClick);
     ON_CLICK(eraserButton, Toolbar::onClick);
@@ -40,6 +48,8 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(undoButton, Toolbar::onClick);
     ON_CLICK(RedoButton, Toolbar::onClick);
     ON_CLICK(clearButton, Toolbar::onClick);
+    ON_CLICK(enlargeButton, Toolbar::onClick);
+    ON_CLICK(reduceButton, Toolbar::onClick);
 
     selectedTool = PENCIL;
     visualizeSelectedTool();
@@ -90,6 +100,12 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     }
     else if (sender == clearButton) {
         action = CLEAR;
+    }
+    else if (sender == enlargeButton) {
+     action = ENLARGE;
+    }
+    else if (sender == reduceButton) {
+         action = REDUCE;
     }
 
     if (onChangeCb) {

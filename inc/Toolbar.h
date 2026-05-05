@@ -3,6 +3,7 @@
 
 #include <bobcat_ui/all.h>
 #include <Enums.h>
+#include <bobcat_ui/image.h>
 
 class Toolbar : public bobcat::Group {
     bobcat::Image* pencilButton;
@@ -16,6 +17,8 @@ class Toolbar : public bobcat::Group {
     bobcat::Image* clearButton;
     bobcat::Image* HexagonButton;
     bobcat::Image* StarButton;
+    bobcat::Image* enlargeButton;
+    bobcat::Image*reduceButton;
     
     TOOL selectedTool;
     ACTION action;

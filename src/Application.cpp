@@ -72,6 +72,12 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->Redo();
         canvas->redraw();
     }
+    else if (action == ENLARGE) {
+    
+    }
+    else if (action == REDUCE) {
+    
+    }
 }
 
 void Application::onColorChange(bobcat::Widget* sender){
