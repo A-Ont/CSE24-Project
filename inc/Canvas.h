@@ -32,7 +32,10 @@ public:
     void tryToSelectShape(float x, float y, Color color);
     void tryToMoveSelectedShape(float x, float y);
     void change_color(Shape* selected_shape,Color color);
+    void growShape();
+    void shrinkShape(Shape* selected_shape);
     Shape* getSelectedShape();
+
     void Undo();
     void Redo();
     void clear();

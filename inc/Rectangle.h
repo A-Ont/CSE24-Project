@@ -7,7 +7,7 @@
 class Rectangle : public Shape {
     float width;
     float height;
-    
+
 public:
     Rectangle();
     Rectangle(float _x, float _y, float _width, float _height, Color _color);
@@ -21,6 +21,7 @@ public:
 
     void setWidth(float _width);
     void setHeight(float _height);
+    void grow(float z);
 
     ~Rectangle();
 };

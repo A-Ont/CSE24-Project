@@ -3,6 +3,7 @@
 Rectangle::Rectangle() {
     x = 0.0;
     y = 0.0;
+    
     width = 0.2;
     height = 0.2;
     color = {0, 0, 0};
@@ -54,6 +55,10 @@ void Rectangle::setHeight(float _height) {
     height = _height;
 }
 
+void Rectangle::grow(float z){
+    setHeight(getHeight() + z);
+    setWidth(getWidth() + z);
+}
 Rectangle::~Rectangle() {
     //
 }

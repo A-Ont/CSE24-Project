@@ -58,6 +58,11 @@ void Star::setHeight(float _height) {
     height = _height;
 }
 
+void Star::grow(float z){
+    setHeight(getHeight() + z);
+    setBase(getBase() + z);
+}
+
 Star::~Star() {
     //
 }

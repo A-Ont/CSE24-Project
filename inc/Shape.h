@@ -9,6 +9,8 @@ protected:
     float y;
     Color color;
     bool isSelected;
+    float z;
+    
     
 public:
     Shape();
@@ -20,6 +22,7 @@ public:
 
 
     virtual void draw() const = 0;
+    virtual void grow(float z) = 0;
     virtual bool contains(float _x, float _y) const = 0;
 
 

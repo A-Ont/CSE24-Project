@@ -18,6 +18,7 @@ public:
 
     float getRadius() const;
     void setRadius(float _radius);
+    void grow(float z);
 
     ~Circle();
 };

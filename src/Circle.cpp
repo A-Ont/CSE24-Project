@@ -45,6 +45,11 @@ void Circle::setRadius(float _radius) {
     radius = _radius;
 }
 
+void Circle::grow(float z){
+    radius += z;
+    
+}
+
 Circle::~Circle() {
     //
 }

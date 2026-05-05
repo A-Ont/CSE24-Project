@@ -15,7 +15,6 @@ float Shape::getY() const {
 Color Shape::getColor() const {
     return color;
 }
-
 void Shape::setX(float _x) {
     x = _x;
 }

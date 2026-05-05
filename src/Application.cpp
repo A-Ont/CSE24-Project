@@ -73,7 +73,8 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
         canvas->redraw();
     }
     else if (action == ENLARGE) {
-    
+    canvas->growShape();
+    canvas->redraw();
     }
     else if (action == REDUCE) {
     
