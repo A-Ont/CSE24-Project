@@ -17,7 +17,8 @@ public:
 
     float getRadius() const;
     void setRadius(float _radius);
-    void grow (float z);
+    void grow(float z);
+    void shrink(float z);
 
     ~Hexagon();
 };

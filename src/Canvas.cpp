@@ -66,10 +66,15 @@ void Canvas::tryToMoveSelectedShape(float x, float y) {
 
 void Canvas::growShape(){
     if (selectedShape) {
-        selectedShape->grow(0.2);
+        selectedShape->grow(0.1);
     }
 }
 
+void Canvas::shrinkShape(){
+    if (selectedShape) {
+        selectedShape->shrink(0.1);
+    }
+}
 
 void Canvas::clear() {
     for (size_t i = 0; i < shapes.size(); i++) {

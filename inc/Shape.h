@@ -23,6 +23,7 @@ public:
 
     virtual void draw() const = 0;
     virtual void grow(float z) = 0;
+    virtual void shrink(float z) = 0;
     virtual bool contains(float _x, float _y) const = 0;
 
 

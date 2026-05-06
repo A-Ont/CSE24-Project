@@ -23,6 +23,7 @@ public:
     void setBase(float _base);
     void setHeight(float _height);
     void grow(float z);
+    void shrink(float z);
 
     ~Star();
 };

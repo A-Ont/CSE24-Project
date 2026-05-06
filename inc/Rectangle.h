@@ -22,6 +22,7 @@ public:
     void setWidth(float _width);
     void setHeight(float _height);
     void grow(float z);
+    void shrink(float z);
 
     ~Rectangle();
 };

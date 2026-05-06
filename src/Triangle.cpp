@@ -56,6 +56,11 @@ void Triangle::grow(float z){
     setBase(getBase() + z);
 }
 
+void Triangle::shrink(float z){
+    setHeight(getHeight() - z);
+    setBase(getBase() - z);
+}
+
 Triangle::~Triangle() {
     //
 }

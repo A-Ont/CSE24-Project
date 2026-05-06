@@ -51,6 +51,11 @@ void Hexagon::grow(float z){
     
 }
 
+void Hexagon::shrink(float z){
+    setRadius(getRadius() - z);
+    
+}
+
 Hexagon::~Hexagon() {
     //
 }

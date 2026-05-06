@@ -50,6 +50,11 @@ void Circle::grow(float z){
     
 }
 
+void Circle::shrink(float z){
+    setRadius(getRadius() - z);
+    
+}
+
 Circle::~Circle() {
     //
 }

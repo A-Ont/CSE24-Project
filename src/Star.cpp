@@ -63,6 +63,11 @@ void Star::grow(float z){
     setBase(getBase() + z);
 }
 
+void Star::shrink(float z){
+    setHeight(getHeight() - z);
+    setBase(getBase() - z);
+}
+
 Star::~Star() {
     //
 }

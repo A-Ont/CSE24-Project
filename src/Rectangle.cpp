@@ -59,6 +59,11 @@ void Rectangle::grow(float z){
     setHeight(getHeight() + z);
     setWidth(getWidth() + z);
 }
+
+void Rectangle::shrink(float z){
+    setHeight(getHeight() - z);
+    setWidth(getWidth() - z);
+}
 Rectangle::~Rectangle() {
     //
 }
