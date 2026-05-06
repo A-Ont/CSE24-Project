@@ -6,6 +6,7 @@ Triangle::Triangle() {
     base = 0.2;
     height = 0.2;
     color = {0, 0, 0};
+    isSelected = false;
 }
 
 Triangle::Triangle(float _x, float _y, float _base, float _height, Color _color) {

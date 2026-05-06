@@ -4,6 +4,7 @@ Shape::Shape() {
     x = 0.0;
     y = 0.0;
     color = {0, 0, 0};
+    isSelected = false;
 }
 
 float Shape::getX() const {

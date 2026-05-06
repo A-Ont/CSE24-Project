@@ -51,7 +51,7 @@ void Canvas::tryToSelectShape(float x, float y, Color color) {
         if (shapes[i]->contains(x, y)) {
             selectedShape = shapes[i];
             selectedShape->select();
-            change_color(selectedShape, color);
+            
             break;
         }
     }
@@ -119,9 +119,9 @@ void Canvas::reColor(Color color){
     
     
     Shape* currentShape = getSelectedShape();
-    //if(currentShape){
+    if(currentShape){
         change_color(currentShape, color);
-    //}
+    }
 }
 
 Canvas::~Canvas() {

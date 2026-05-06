@@ -7,6 +7,7 @@
 class Hexagon : public Shape {
     float radius;
     
+    
 public:
     Hexagon();
     Hexagon(float _x, float _y, float _radius, Color _color);
