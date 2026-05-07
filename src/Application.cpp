@@ -23,17 +23,22 @@ Application::Application() {
     ON_CHANGE(toolbar, Application::onToolbarChange);
     ON_CHANGE(colorSelector, Application::onColorChange);
     window->show();
+    lineid = 0;
 }
+
+
 
 void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     Color color = colorSelector->getSelectedColor();
     TOOL tool = toolbar->getSelectedTool();
     
     if (tool == PENCIL) {
-        canvas->addPoint(x, y, color); 
+        lineid += 1;
+        // std::cout << lineid << std::endl;
+        canvas->addPoint(x, y, color, lineid); 
     }
     else if (tool == ERASER) {
-        canvas->addPoint(x, y, {1, 1, 1}); 
+        canvas->addPoint(x, y, {1, 1, 1},lineid); 
     }
     else if (tool == CIRCLE) {
         canvas->addCircle(x, y, 0.1, color);
@@ -102,10 +107,10 @@ void Application::onCanvasMouseDrag(bobcat::Widget* sender, float x, float y) {
     TOOL tool = toolbar->getSelectedTool();
     
     if (tool == PENCIL) {
-        canvas->addPoint(x, y, color); 
+        canvas->addPoint(x, y, color, lineid); 
     }
     else if (tool == ERASER) {
-        canvas->addPoint(x, y, {1, 1, 1}); 
+        canvas->addPoint(x, y, {1, 1, 1}, lineid); 
 
     }
     else if (tool == MOUSE) {

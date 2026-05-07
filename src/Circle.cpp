@@ -37,6 +37,9 @@ bool Circle::contains(float _x, float _y) const {
     return false;
 }
 
+int Circle::getid() const{
+    return 0;
+}
 
 float Circle::getRadius() const {
     return radius;

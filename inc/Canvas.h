@@ -23,7 +23,7 @@ class Canvas : public bobcat::Canvas_ {
 public:
     Canvas(int x, int y, int w, int h);
 
-    void addPoint(float x, float y, Color color);
+    void addPoint(float x, float y, Color color, int id);
     void addCircle(float x, float y, float radius, Color color);
     void addTriangle(float x, float y, float base, float height, Color color);
     void addRectangle(float x, float y, float width, float height, Color color);

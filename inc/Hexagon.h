@@ -15,6 +15,7 @@ public:
     void draw() const;
     bool contains(float _x, float _y) const;
 
+    int getid() const;
 
     float getRadius() const;
     void setRadius(float _radius);

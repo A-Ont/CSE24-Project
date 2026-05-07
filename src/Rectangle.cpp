@@ -42,6 +42,9 @@ bool Rectangle::contains(float _x, float _y) const {
     return false;
 }
 
+int Rectangle::getid() const{
+    return 0;
+}
 float Rectangle::getWidth() const {
     return width;
 }

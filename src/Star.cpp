@@ -44,6 +44,9 @@ bool Star::contains(float _x, float _y) const {
     return false;
 }
 
+int Star::getid() const{
+    return 0;
+}
 
 float Star::getBase() const {
     return base;

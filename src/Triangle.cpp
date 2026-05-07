@@ -39,6 +39,10 @@ bool Triangle::contains(float _x, float _y) const {
     return false;
 }
 
+int Triangle::getid() const{
+    return 0;
+}
+
 float Triangle::getBase() const {
     return base;
 }

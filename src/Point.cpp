@@ -1,17 +1,20 @@
+#include <GL/gl.h>
 #include <Point.h>
-
+#include <iostream>
 Point::Point() {
     x = 0.0;
     y = 0.0;
     color = {0, 0, 0};
-    size = 7;
+    size = 15;
+    id = 1;
 }
 
-Point::Point(float _x, float _y, Color _color) {
+Point::Point(float _x, float _y, Color _color, int _id) {
     x = _x;
     y = _y;
     color = _color;
-    size = 7;
+    size = 35;
+    id = _id;
 }
 
 void Point::draw() const {
@@ -20,13 +23,25 @@ void Point::draw() const {
     glBegin(GL_POINTS);
         glVertex2f(x, y);
     glEnd();
+
+    if (isSelected) {
+        Point inner = Point(x, y, {0, 0, 0} , id);
+        inner.draw();
+    }
 }
+
+
+
 
 float Point::getX() const {
     return x;
 }
 float Point::getY() const {
     return y;
+}
+
+int Point::getid() const{
+    return id;
 }
 int Point::getSize() const {
     return size;
@@ -46,6 +61,23 @@ void Point::setSize(int _size) {
 }
 void Point::setColor(Color _color) {
     color = _color;
+}
+
+void Point::grow(float z){
+    
+}
+
+void Point::shrink(float z){
+    
+}
+
+bool Point::contains(float _x, float _y) const {
+    if (_x >= x-0.1 && _x <= x +0.1 && _y >= y - 0.1 && _y <= y +0.1) {
+        std::cout<<"selected"<< id << std::endl;
+        return true;
+        
+    }
+    return false;
 }
 
 Point::~Point() {

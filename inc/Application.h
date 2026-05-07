@@ -14,6 +14,8 @@ class Application : public bobcat::Application_ {
     Toolbar* toolbar;
     ColorSelector* colorSelector;
 
+    int lineid;
+
     void onCanvasMouseDown(bobcat::Widget* sender, float x, float y);
     void onCanvasMouseDrag(bobcat::Widget* sender, float x, float y);
     void onToolbarChange(bobcat::Widget* sender);

@@ -38,6 +38,10 @@ bool Hexagon::contains(float _x, float _y) const {
     return false;
 }
 
+int Hexagon::getid() const{
+    return 0;
+}
+
 
 float Hexagon::getRadius() const {
     return radius;

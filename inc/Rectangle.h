@@ -19,6 +19,8 @@ public:
     float getWidth() const;
     float getHeight() const;
 
+    int getid() const;
+
     void setWidth(float _width);
     void setHeight(float _height);
     void grow(float z);

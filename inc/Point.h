@@ -5,15 +5,16 @@
 #include <Color.h>
 #include <GL/freeglut.h>
 
-class Point {
+class Point : public Shape  {
     float x;
     float y;
     int size;
     Color color;
+    int id;
 
 public:
     Point();
-    Point(float _x, float _y, Color color);
+    Point(float _x, float _y, Color color, int _id);
 
     void draw() const;
     
@@ -21,11 +22,15 @@ public:
     float getY() const;
     Color getColor() const;
     int getSize() const;
+    int getid() const;
 
     void setX(float _x);
     void setY(float _y);
     void setColor(Color _color);
     void setSize(int _size);
+    void grow(float z);
+    void shrink(float z);
+    bool contains(float _x, float _y) const;
 
     ~Point();
 };

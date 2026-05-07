@@ -10,6 +10,7 @@ protected:
     Color color;
     bool isSelected;
     float z;
+    int id;
     
     
 public:
@@ -17,6 +18,7 @@ public:
 
     float getX() const;
     float getY() const;
+   virtual int getid() const = 0;
     Color getColor() const;
     bool getIsSelected() const;
 

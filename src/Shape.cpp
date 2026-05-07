@@ -10,6 +10,7 @@ Shape::Shape() {
 float Shape::getX() const {
     return x;
 }
+
 float Shape::getY() const {
     return y;
 }
@@ -30,6 +31,9 @@ void Shape::select() {
 }
 void Shape::deselect() {
     isSelected = false;
+}
+bool Shape::getIsSelected() const{
+    return isSelected;
 }
 
 Shape::~Shape() {

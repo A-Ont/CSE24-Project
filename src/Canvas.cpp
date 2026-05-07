@@ -1,14 +1,16 @@
 #include "Color.h"
 #include "Hexagon.h"
+#include "Point.h"
 #include "Shape.h"
 #include <Canvas.h>
+#include <algorithm>
 
 Canvas::Canvas(int x, int y, int w, int h) : bobcat::Canvas_(x, y, w, h) {
     //
 }
 
-void Canvas::addPoint(float x, float y, Color color) {
-    points.push_back(new Point(x, y, color));
+void Canvas::addPoint(float x, float y, Color color, int id) {
+    shapes.push_back(new Point(x, y, color, id));
 }
 
 void Canvas::addCircle(float x, float y, float radius, Color color) {
@@ -43,6 +45,9 @@ Shape* Canvas::getSelectedShape(){
 void Canvas::tryToSelectShape(float x, float y, Color color) {
     if (selectedShape) {
         selectedShape->deselect();
+        for (int i = 0; i < shapes.size(); i++){
+            shapes[i]->deselect();
+        }
         selectedShape = nullptr;
     }
     
@@ -51,16 +56,25 @@ void Canvas::tryToSelectShape(float x, float y, Color color) {
         if (shapes[i]->contains(x, y)) {
             selectedShape = shapes[i];
             selectedShape->select();
-            
+            if(selectedShape->getid() != 0){
+                // std::cout<<selectedShape->getid()<<std::endl;
+                for (int i = 0; i < shapes.size(); i++){
+                    if(shapes[i]->getid() == selectedShape->getid()){
+                        shapes[i]->select();
+                    }
+                }
+            }
             break;
         }
     }
 }
 
 void Canvas::tryToMoveSelectedShape(float x, float y) {
-    if (selectedShape) {
-        selectedShape->setX(x);
-        selectedShape->setY(y);
+    for (size_t i = 0; i < shapes.size(); i++) {
+        if (shapes[i]->getIsSelected()) {
+            shapes[i]->setX(x);
+            shapes[i]->setY(y);
+        }
     }
 }
 
@@ -111,6 +125,10 @@ void Canvas::Redo(){
 void Canvas::render() {
     for (size_t i = 0; i < shapes.size(); i++) {
         shapes[i]->draw();
+    }
+
+    for (size_t i = 0; i < points.size(); i++) {
+        points[i]->draw();
     }
 }
 
