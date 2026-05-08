@@ -18,6 +18,7 @@ class Canvas : public bobcat::Canvas_ {
     std::vector<Point*> points;
     std::vector<Shape*> variables;
     Shape* selectedShape;
+    Shape* frontShape;
     
 
 public:
@@ -34,6 +35,7 @@ public:
     void change_color(Shape* selected_shape,Color color);
     void growShape();
     void shrinkShape();
+    void sendToFront(float x, float y);
     Shape* getSelectedShape();
 
     void Undo();

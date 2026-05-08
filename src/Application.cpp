@@ -58,6 +58,10 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     else if (tool == MOUSE) {
         canvas->tryToSelectShape(x, y, color);
     }
+    else if (tool == BRING_TO_FRONT) {
+         canvas->sendToFront(x, y);
+         
+    }
     
     canvas->redraw();
 }
@@ -85,6 +89,7 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     canvas->shrinkShape();
     canvas->redraw();
     }
+    
 }
 
 void Application::onColorChange(bobcat::Widget* sender){
@@ -116,6 +121,7 @@ void Application::onCanvasMouseDrag(bobcat::Widget* sender, float x, float y) {
     else if (tool == MOUSE) {
         canvas->tryToMoveSelectedShape(x, y);
     }
+    
     
     canvas->redraw();
 }

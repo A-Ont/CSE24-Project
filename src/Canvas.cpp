@@ -56,14 +56,14 @@ void Canvas::tryToSelectShape(float x, float y, Color color) {
         if (shapes[i]->contains(x, y)) {
             selectedShape = shapes[i];
             selectedShape->select();
-            if(selectedShape->getid() != 0){
-                // std::cout<<selectedShape->getid()<<std::endl;
-                for (int i = 0; i < shapes.size(); i++){
-                    if(shapes[i]->getid() == selectedShape->getid()){
-                        shapes[i]->select();
-                    }
-                }
-            }
+            // if(selectedShape->getid() != 0){
+            //     // std::cout<<selectedShape->getid()<<std::endl;
+            //     for (int i = 0; i < shapes.size(); i++){
+            //         if(shapes[i]->getid() == selectedShape->getid()){
+            //             shapes[i]->select();
+            //         }
+            //     }
+            // }
             break;
         }
     }
@@ -99,6 +99,22 @@ void Canvas::clear() {
     
 }
 
+void Canvas::sendToFront(float x, float y){
+       
+       for (size_t i = shapes.size(); i > 0; i--) {
+        if (shapes[i]->contains(x, y)) {
+        Shape* frontShape = shapes[i];
+        shapes.erase(shapes.begin()+i);
+        shapes.push_back(frontShape);
+        break;
+        }
+        
+        
+       }
+    }
+    
+    
+
 void Canvas::Undo(){
     if (shapes.size() >= 0){    
     Shape* XVar = shapes[shapes.size() - 1];
@@ -117,7 +133,9 @@ void Canvas::Redo(){
     variables.pop_back();
     shapes.push_back(newx);
           //variables[variables.size() - 1]->draw();
+          
        }
+       
       
     
 }

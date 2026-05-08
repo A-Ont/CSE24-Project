@@ -19,6 +19,7 @@ class Toolbar : public bobcat::Group {
     bobcat::Image* StarButton;
     bobcat::Image* enlargeButton;
     bobcat::Image*reduceButton;
+    bobcat::Image* frontButton;
     
     TOOL selectedTool;
     ACTION action;
