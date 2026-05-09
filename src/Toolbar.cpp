@@ -1,3 +1,4 @@
+#include "Canvas.h"
 #include "Enums.h"
 #include <FL/Enumerations.H>
 #include <Toolbar.h>
@@ -69,7 +70,7 @@ ACTION Toolbar::getAction() const {
 
 void Toolbar::onClick(bobcat::Widget* sender) {
     deselectAllTools();
-
+    
     action = NONE;
     
     if (sender == pencilButton) {
@@ -103,6 +104,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
         action = REDO;
     }
     else if (sender == clearButton) {
+        // remove all shapes
+        
+        std::cout << "clear" << std::endl;
         action = CLEAR;
     }
     else if (sender == enlargeButton) {

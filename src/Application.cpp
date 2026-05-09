@@ -33,7 +33,7 @@ Application::Application() {
 void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     Color color = colorSelector->getSelectedColor();
     TOOL tool = toolbar->getSelectedTool();
-    
+    ACTION action = toolbar->getAction();
     if (tool == PENCIL) {
         lineid += 1;
         // std::cout << lineid << std::endl;
@@ -65,6 +65,7 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
          canvas->sendToFront( x, y);
          
     }
+   
     
     canvas->redraw();
 }
