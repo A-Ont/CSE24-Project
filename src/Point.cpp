@@ -16,7 +16,15 @@ Point::Point(float _x, float _y, Color _color, int _id) {
     size = 35;
     id = _id;
 }
-
+ 
+Point::Point(const Point& other){
+    x = other.x;
+    y = other.y;
+    size = other.size;
+    color = other.color;
+    size = other.size;
+}
+ 
 void Point::draw() const {
     glColor3f(color.r, color.g, color.b);
     glPointSize(size);

@@ -18,7 +18,7 @@ public:
 
     float getX() const;
     float getY() const;
-   virtual int getid() const = 0;
+   //virtual int getid() const = 0;
     Color getColor() const;
     bool getIsSelected() const;
 

@@ -15,6 +15,9 @@ class Point : public Shape  {
 public:
     Point();
     Point(float _x, float _y, Color color, int _id);
+    
+    Point(const Point& other);
+    
 
     void draw() const;
     

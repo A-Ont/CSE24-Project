@@ -1,4 +1,5 @@
 #include "Color.h"
+#include "Shape.h"
 #include <Enums.h>
 #include <Application.h>
 #include <bobcat_ui/bobcat_ui.h>
@@ -22,6 +23,7 @@ Application::Application() {
     ON_DRAG(canvas, Application::onCanvasMouseDrag);
     ON_CHANGE(toolbar, Application::onToolbarChange);
     ON_CHANGE(colorSelector, Application::onColorChange);
+    ON_MOUSE_UP(canvas, Application::onCanvasMouseUp);
     window->show();
     lineid = 0;
 }
@@ -59,7 +61,8 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
         canvas->tryToSelectShape(x, y, color);
     }
     else if (tool == BRING_TO_FRONT) {
-         canvas->sendToFront(x, y);
+         
+         canvas->sendToFront( x, y);
          
     }
     
@@ -122,7 +125,16 @@ void Application::onCanvasMouseDrag(bobcat::Widget* sender, float x, float y) {
         canvas->tryToMoveSelectedShape(x, y);
     }
     
+    canvas->redraw();
+}
+
+void Application::onCanvasMouseUp(bobcat::Widget*sender, float x, float y){
+    TOOL tool = toolbar->getSelectedTool();
+    Color color = colorSelector->getSelectedColor();
     
+    if (tool == PENCIL){
+        canvas->addScribble(x, y, color);
+    }
     canvas->redraw();
 }
 

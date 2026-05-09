@@ -2,15 +2,16 @@
 #include "Hexagon.h"
 #include "Point.h"
 #include "Shape.h"
+#include <scribble.h>
 #include <Canvas.h>
-#include <algorithm>
+#include <vector>
 
 Canvas::Canvas(int x, int y, int w, int h) : bobcat::Canvas_(x, y, w, h) {
     //
 }
 
 void Canvas::addPoint(float x, float y, Color color, int id) {
-    shapes.push_back(new Point(x, y, color, id));
+    points.push_back(new Point(x, y, color, id));
 }
 
 void Canvas::addCircle(float x, float y, float radius, Color color) {
@@ -111,6 +112,14 @@ void Canvas::sendToFront(float x, float y){
         
         
        }
+    }
+
+    void Canvas::addScribble(float x, float y, Color color){
+       shapes.push_back(new Scribble(x, y, color, 0, 0,points));
+       for (size_t i = 0; i < points.size(); i++){
+        delete points[i];
+       }
+       points.clear();
     }
     
     

@@ -3,6 +3,7 @@
 
 #include <bobcat_ui/canvas.h>
 #include <Point.h>
+#include <scribble.h>
 #include <Circle.h>
 #include <Triangle.h>
 #include <Rectangle.h>
@@ -19,6 +20,8 @@ class Canvas : public bobcat::Canvas_ {
     std::vector<Shape*> variables;
     Shape* selectedShape;
     Shape* frontShape;
+    Shape* deletedShape;
+    
     
 
 public:
@@ -30,10 +33,12 @@ public:
     void addRectangle(float x, float y, float width, float height, Color color);
     void addHexagon(float x, float y, float width, float height, Color color);
     void addStar(float x, float y, float base, float height, Color color);
+    void addScribble(float x, float y, Color color);
     void tryToSelectShape(float x, float y, Color color);
     void tryToMoveSelectedShape(float x, float y);
     void change_color(Shape* selected_shape,Color color);
     void growShape();
+    
     void shrinkShape();
     void sendToFront(float x, float y);
     Shape* getSelectedShape();
