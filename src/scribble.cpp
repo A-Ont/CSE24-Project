@@ -8,7 +8,7 @@
     height = 0.2;
     color = {0, 0, 0};
     points.push_back(new Point());
-}
+ }
 
 Scribble::Scribble(float _x, float _y,  Color _color, float _height, float _width, const std::vector<Point*> pointh) {
     x = _x;
@@ -24,7 +24,7 @@ Scribble::Scribble(float _x, float _y,  Color _color, float _height, float _widt
       
         
 }
-
+ 
 
 void Scribble::draw() const {
     glColor3f(color.r, color.g, color.b);
@@ -41,12 +41,35 @@ void Scribble::draw() const {
     }
 
 
-
-
+     
 
 bool Scribble::contains(float _x, float _y) const {
-    
-    if ((_x >=  x- 2 || _x <= x + 2 ) && (_y >= y - 2  || _y <= y + 2)) {
+    float minx = points[0]->getX();
+    float maxx = points[0]->getX();
+    float miny = points[0]->getY();
+    float maxy = points[0]->getY();
+    float boundx = 0;
+    float boundy = 0;
+   
+     
+     for (size_t i = 0; i < points.size(); i++){
+        if (minx > points[i]->getX()) {
+             minx = points[i]->getX();
+        }
+        if (maxx < points[i]->getX()) {
+           maxx = points[i]->getX();
+        }
+        if (miny > points[i]->getY()) {
+             minx = points[i]->getY();
+        }
+        if (maxy < points[i]->getY()) {
+           maxy = points[i]->getY();
+        }
+     }
+
+      boundx = maxx - minx;
+      boundy = maxy - miny;
+    if (_x >= x - boundx/2 && _x <= x + boundx/2 && _y >= y - boundy/2 && _y <= y + boundy/2) {
         return true;
     }
     return false;

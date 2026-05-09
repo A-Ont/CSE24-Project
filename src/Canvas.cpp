@@ -71,11 +71,9 @@ void Canvas::tryToSelectShape(float x, float y, Color color) {
 }
 
 void Canvas::tryToMoveSelectedShape(float x, float y) {
-    for (size_t i = 0; i < shapes.size(); i++) {
-        if (shapes[i]->getIsSelected()) {
-            shapes[i]->setX(x);
-            shapes[i]->setY(y);
-        }
+    if (selectedShape) {
+        selectedShape->setX(x);
+        selectedShape->setY(y);
     }
 }
 

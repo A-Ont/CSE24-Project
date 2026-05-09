@@ -19,6 +19,8 @@ public:
 
     void draw() const;
     bool contains(float _x, float _y) const;
+    
+    void bounds();
 
 
     float getHeight() const;
