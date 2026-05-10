@@ -1,12 +1,16 @@
- #include <scribble.h>
+ #include "Point.h"
+#include <scribble.h>
 
  Scribble::Scribble() {
-    x = 0.0;
-    y = 0.0;
+    x = points[0]->getX();
+    y = points[0]->getY();
     
     width = 0.2;
     height = 0.2;
     color = {0, 0, 0};
+    float boundx = 0;
+    float boundy = 0;
+   
     points.push_back(new Point());
  }
 
@@ -20,37 +24,11 @@ Scribble::Scribble(float _x, float _y,  Color _color, float _height, float _widt
     
         points.push_back(new Point(*pointh[i]));
     }
-      
-      
-        
-}
- 
-
-void Scribble::draw() const {
-    glColor3f(color.r, color.g, color.b);
-
-    for (size_t i = 0; i < points.size(); i++){
-       glPointSize(15);
-    glBegin(GL_POINTS);
-        glVertex2f(points[i]->getX(),points[i]->getY() ); 
-    }
-    glEnd();
-    // if (isSelected) {
-    //     Rectangle inner = Rectangle(x, y, width - 0.05, height - 0.05, {1, 1, 1});
-    // inner.draw();
-    }
-
-
-     
-
-bool Scribble::contains(float _x, float _y) const {
-    float minx = points[0]->getX();
+     float minx = points[0]->getX();
     float maxx = points[0]->getX();
     float miny = points[0]->getY();
     float maxy = points[0]->getY();
-    float boundx = 0;
-    float boundy = 0;
-   
+    
      
      for (size_t i = 0; i < points.size(); i++){
         if (minx > points[i]->getX()) {
@@ -69,7 +47,32 @@ bool Scribble::contains(float _x, float _y) const {
 
       boundx = maxx - minx;
       boundy = maxy - miny;
-    if (_x >= x - boundx/2 && _x <= x + boundx/2 && _y >= y - boundy/2 && _y <= y + boundy/2) {
+      
+        
+}
+ 
+
+void Scribble::draw() const {
+    glColor3f(color.r, color.g, color.b);
+     glPointSize(15);
+    for (size_t i = 0; i < points.size(); i++){
+       float gg = points[i]->getX() - x;
+       float ff = points[i]->getY() - y;
+    glBegin(GL_POINTS);
+        glVertex2f( gg + x, ff + y); 
+    }
+    glEnd();
+    // if (isSelected) {
+    //     Rectangle inner = Rectangle(x, y, width - 0.05, height - 0.05, {1, 1, 1});
+    // inner.draw();
+    }
+
+
+     
+
+bool Scribble::contains(float _x, float _y) const {
+    
+    if  ((_x >=  x - 2 || _x <= x + boundx ) && (_y >= y - 2  || _y <= y + 2)) {
         return true;
     }
     return false;

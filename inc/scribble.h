@@ -10,6 +10,8 @@
 class Scribble : public Shape {
     float height;
     float width;
+    float boundx;
+    float boundy;
     
     std::vector<Point*> points; 
     
