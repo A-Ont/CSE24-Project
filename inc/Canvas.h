@@ -38,6 +38,7 @@ public:
     void tryToMoveSelectedShape(float x, float y);
     void change_color(Shape* selected_shape,Color color);
     void growShape();
+    void clearShape(float x, float y);
     
     void shrinkShape();
     void sendToFront(float x, float y);

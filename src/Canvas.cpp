@@ -100,16 +100,21 @@ void Canvas::clear() {
 
 void Canvas::sendToFront(float x, float y){
        
-       for (size_t i = shapes.size(); i > 0; i--) {
+       for (size_t i = 0; i < shapes.size();  i++) {
         if (shapes[i]->contains(x, y)) {
-        Shape* frontShape = shapes[i];
-        shapes.erase(shapes.begin()+i);
-        shapes.push_back(frontShape);
-        break;
+        frontShape = shapes[i];
+        delete shapes[i];
         }
-        
-        
+        shapes.push_back(frontShape);
        }
+    }
+
+    void Canvas::clearShape(float x, float y){
+      for (size_t i = 0; i < shapes.size();  i++) {
+        if (shapes[i]->contains(x, y)) {
+        delete shapes[i];
+        }  
+    }
     }
 
     void Canvas::addScribble(float x, float y, Color color){

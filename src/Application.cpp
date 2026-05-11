@@ -40,7 +40,8 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
         canvas->addPoint(x, y, color, lineid); 
     }
     else if (tool == ERASER) {
-        canvas->addPoint(x, y, {1, 1, 1},lineid); 
+        canvas->clearShape(x, y);
+        canvas->redraw();
     }
     else if (tool == CIRCLE) {
         canvas->addCircle(x, y, 0.1, color);
