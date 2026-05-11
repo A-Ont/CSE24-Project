@@ -14,6 +14,8 @@ class Scribble : public Shape {
     float boundy;
     
     std::vector<Point*> points; 
+    std::vector<float> xVal;
+    std::vector<float> yVal;
     
 public:
     Scribble();

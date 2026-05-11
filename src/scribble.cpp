@@ -48,16 +48,20 @@ Scribble::Scribble(float _x, float _y,  Color _color, float _height, float _widt
       boundx = maxx - minx;
       boundy = maxy - miny;
       
+      for (size_t i = 0; i < points.size(); i++){
+       xVal.push_back(points[i]->getX() - points[0]->getX());
+       yVal.push_back(points[i]->getY() - points[0]->getY());
         
+}
 }
  
 
 void Scribble::draw() const {
     glColor3f(color.r, color.g, color.b);
      glPointSize(15);
-    for (size_t i = 0; i < points.size(); i++){
-       float gg = points[i]->getX() - x;
-       float ff = points[i]->getY() - y;
+    for (size_t i = 0; i < xVal.size(); i++){
+       float gg = xVal[i];
+       float ff = yVal[i];
     glBegin(GL_POINTS);
         glVertex2f( gg + x, ff + y); 
     }
@@ -72,7 +76,7 @@ void Scribble::draw() const {
 
 bool Scribble::contains(float _x, float _y) const {
     
-    if  ((_x >=  x - 2 || _x <= x + boundx ) && (_y >= y - 2  || _y <= y + 2)) {
+    if  ((_x >=  x - 1 && _x <= x + boundx ) && (_y >= y - 1  && _y <= y + boundy +1 )) {
         return true;
     }
     return false;
