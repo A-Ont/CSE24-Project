@@ -20,9 +20,10 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     RedoButton = new Image(x, y + 225, 25, 25, "./assets/clear.png");
     clearButton = new Image(x, y + 250, 25, 25, "./assets/clear.png");
     
-    enlargeButton = new Image(x, y + 300, 25, 25, "./assets/undo.png");
-    reduceButton = new Image(x, y + 325, 25, 25, "./assets/undo.png");
+    enlargeButton = new Image(x, y + 275, 25, 25, "./assets/undo.png");
+    reduceButton = new Image(x, y + 300, 25, 25, "./assets/undo.png");
     
+    backButton = new Image(x , y + 350, 25, 25, "./assets/undo.png");
     frontButton = new Image(x, y + 375, 25, 25, "./assets/clear.png");
 
 
@@ -40,6 +41,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     enlargeButton->box(FL_BORDER_BOX);
     reduceButton->box(FL_BORDER_BOX);
     frontButton->box(FL_BORDER_BOX);
+    backButton->box(FL_BORDER_BOX);
 
     ON_CLICK(pencilButton, Toolbar::onClick);
     ON_CLICK(eraserButton, Toolbar::onClick);
@@ -55,6 +57,7 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     ON_CLICK(enlargeButton, Toolbar::onClick);
     ON_CLICK(reduceButton, Toolbar::onClick);
     ON_CLICK(frontButton, Toolbar::onClick);
+    ON_CLICK(backButton, Toolbar::onClick);
 
     selectedTool = PENCIL;
     visualizeSelectedTool();
@@ -118,6 +121,9 @@ void Toolbar::onClick(bobcat::Widget* sender) {
     else if (sender == frontButton) {
         action = BRING_TO_FRONT;
     }
+    else if (sender == backButton) {
+        action = BRING_TO_BACK;
+    }
 
     if (onChangeCb) {
         onChangeCb(this);
@@ -178,4 +184,5 @@ Toolbar::~Toolbar() {
     delete RedoButton;
     delete clearButton;
     delete frontButton;
+    delete backButton;
 }

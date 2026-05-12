@@ -107,6 +107,16 @@ void Canvas::sendToFront(){
     }  
       
     }
+void Canvas::sendToBack(){
+     if (selectedShape) {
+        Shape* bringbackShape = getSelectedShape();
+        shapes.push_back(shapes[0]);
+        shapes[0] = bringbackShape;
+        
+    }  
+      
+    }
+    
 
     void Canvas::clearShape(float x, float y){
       for (size_t i = 0; i < shapes.size();  i++) {

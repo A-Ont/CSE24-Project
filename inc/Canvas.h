@@ -42,6 +42,7 @@ public:
     
     void shrinkShape();
     void sendToFront();
+    void sendToBack();
     Shape* getSelectedShape();
 
     void Undo();

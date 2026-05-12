@@ -97,6 +97,12 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
          canvas->redraw();
 
     }
+    else if (action == BRING_TO_BACK) {
+         
+         canvas->sendToBack();
+         canvas->redraw();
+
+    }
     
 }
 
