@@ -89,7 +89,7 @@ void Scribble::draw() const {
     printf("x = %f | y = %f | minx = %f | miny = %f | maxx = %f | maxy = %f\n", x, y,minx,miny,maxx,maxy);
     if (isSelected) {
         std::cout << "we've selected the scribble" << std::endl;
-        glColor3f(0, 1, 0);
+        glColor3f(0, 0, 0);
      glLineWidth(5);
         glBegin(GL_LINE_LOOP);
             glVertex2f(minx+x, miny+y);

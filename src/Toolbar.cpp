@@ -116,7 +116,7 @@ void Toolbar::onClick(bobcat::Widget* sender) {
          action = REDUCE;
     }
     else if (sender == frontButton) {
-        selectedTool = BRING_TO_FRONT;
+        action = BRING_TO_FRONT;
     }
 
     if (onChangeCb) {

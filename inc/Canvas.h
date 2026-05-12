@@ -41,7 +41,7 @@ public:
     void clearShape(float x, float y);
     
     void shrinkShape();
-    void sendToFront(float x, float y);
+    void sendToFront();
     Shape* getSelectedShape();
 
     void Undo();

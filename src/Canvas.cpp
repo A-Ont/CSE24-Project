@@ -2,6 +2,7 @@
 #include "Hexagon.h"
 #include "Point.h"
 #include "Shape.h"
+#include <cstddef>
 #include <scribble.h>
 #include <Canvas.h>
 #include <vector>
@@ -98,15 +99,13 @@ void Canvas::clear() {
     
 }
 
-void Canvas::sendToFront(float x, float y){
-       
-       for (size_t i = 0; i < shapes.size();  i++) {
-        if (shapes[i]->contains(x, y)) {
-        frontShape = shapes[i];
-        delete shapes[i];
-        }
-        shapes.push_back(frontShape);
-       }
+void Canvas::sendToFront(){
+     if (selectedShape) {
+        Shape* bringfrontShape = getSelectedShape();
+        shapes.push_back(bringfrontShape);
+        
+    }  
+      
     }
 
     void Canvas::clearShape(float x, float y){

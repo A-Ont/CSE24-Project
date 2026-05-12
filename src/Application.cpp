@@ -35,7 +35,7 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     TOOL tool = toolbar->getSelectedTool();
     ACTION action = toolbar->getAction();
     if (tool == PENCIL) {
-        lineid += 1;
+        
         // std::cout << lineid << std::endl;
         canvas->addPoint(x, y, color, lineid); 
     }
@@ -61,11 +61,8 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     else if (tool == MOUSE) {
         canvas->tryToSelectShape(x, y, color);
     }
-    else if (tool == BRING_TO_FRONT) {
          
-         canvas->sendToFront( x, y);
-         
-    }
+    
    
     
     canvas->redraw();
@@ -93,6 +90,12 @@ void Application::onToolbarChange(bobcat::Widget* sender) {
     else if (action == REDUCE) {
     canvas->shrinkShape();
     canvas->redraw();
+    }
+    else if (action == BRING_TO_FRONT) {
+         
+         canvas->sendToFront();
+         canvas->redraw();
+
     }
     
 }
