@@ -14,16 +14,16 @@ Toolbar::Toolbar(int x, int y, int w, int h) : Group(x, y, w, h) {
     circleButton = new Image(x, y + 75, 25, 25, "./assets/circle.png");
     triangleButton = new Image(x, y + 100, 25, 25, "./assets/triangle.png");
     rectangleButton = new Image(x, y + 125, 25, 25, "./assets/rectangle.png");
-    HexagonButton = new Image(x, y + 150, 25, 25, "./assets/rectangle.png");
+    HexagonButton = new Image(x, y + 150, 25, 25, "./assets/hexagon-png-hexagon-png-1184.png");
     StarButton = new Image(x, y + 175, 25, 25,"./assets/triangle.png");
     undoButton = new Image(x, y + 200, 25, 25, "./assets/undo.png");
     RedoButton = new Image(x, y + 225, 25, 25, "./assets/clear.png");
     clearButton = new Image(x, y + 250, 25, 25, "./assets/clear.png");
     
-    enlargeButton = new Image(x, y + 275, 25, 25, "./assets/undo.png");
-    reduceButton = new Image(x, y + 300, 25, 25, "./assets/undo.png");
+    enlargeButton = new Image(x, y + 275, 25, 25, "./assets/Plus-Symbol-Vector-PNG-Cutout.png");
+    reduceButton = new Image(x, y + 300, 25, 25, "./assets/Minus-Symbol-PNG-Photo-Image.png");
     
-    backButton = new Image(x , y + 350, 25, 25, "./assets/undo.png");
+    backButton = new Image(x , y + 350, 25, 25, "./assets/1391663.png");
     frontButton = new Image(x, y + 375, 25, 25, "./assets/clear.png");
 
 
