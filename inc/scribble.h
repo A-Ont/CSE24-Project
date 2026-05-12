@@ -12,7 +12,13 @@ class Scribble : public Shape {
     float width;
     float boundx;
     float boundy;
+
     
+    float minx;
+    float miny;
+    float maxx;
+    float maxy;
+     
     std::vector<Point*> points; 
     std::vector<float> xVal;
     std::vector<float> yVal;
