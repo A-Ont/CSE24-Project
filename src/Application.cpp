@@ -41,7 +41,7 @@ void Application::onCanvasMouseDown(bobcat::Widget* sender, float x, float y) {
     }
     else if (tool == ERASER) {
         canvas->clearShape(x, y);
-        canvas->redraw();
+        
     }
     else if (tool == CIRCLE) {
         canvas->addCircle(x, y, 0.1, color);

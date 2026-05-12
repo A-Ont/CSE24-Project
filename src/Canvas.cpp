@@ -45,6 +45,7 @@ Shape* Canvas::getSelectedShape(){
 }
 
 void Canvas::tryToSelectShape(float x, float y, Color color) {
+    std::cout<<x<<y;
     if (selectedShape) {
         selectedShape->deselect();
         for (int i = 0; i < shapes.size(); i++){
@@ -121,8 +122,10 @@ void Canvas::sendToBack(){
     void Canvas::clearShape(float x, float y){
       for (size_t i = 0; i < shapes.size();  i++) {
         if (shapes[i]->contains(x, y)) {
-        delete shapes[i];
+        shapes.erase(shapes.begin() + i);
+        
         }  
+    
     }
     }
 

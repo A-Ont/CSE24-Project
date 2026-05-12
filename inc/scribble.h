@@ -35,6 +35,9 @@ public:
 
     float getHeight() const;
     float getWidth() const;
+    void setX(float _x) override;
+    void setY(float _y) override;
+    
     void setWidth(float _height);
     void setHeight(float _height);
     void grow(float z);

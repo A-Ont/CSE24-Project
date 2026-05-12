@@ -29,8 +29,8 @@ public:
     virtual bool contains(float _x, float _y) const = 0;
 
 
-    void setX(float _x);
-    void setY(float _y);
+    virtual void setX(float _x);
+    virtual void setY(float _y);
     void setColor(Color _color);
     void select();
     void deselect();
